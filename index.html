@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- SEO - POE 3.1 On-Page -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | UM Church Cape Town - Faith Community Hope</title>
+  <meta name="description" content="UM Church Cape Town - Faith, Community, Hope. Sunday Service 10AM at 123 Faith Road. Reserve your seat, join our services. No more DMs lost on Instagram.">
+  <meta name="keywords" content="UM Church Cape Town, Sunday service, church Cape Town, Faith Community Hope">
+  <meta name="author" content="UM Church">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:#F6F1E7;font-family:Arial,sans-serif;color:#333;line-height:1.6}
+    
+    /* HEADER IGUAL TODAS PÁGINAS */
+    header{
+      background:white;height:70px;padding:0 40px;
+      display:flex;justify-content:space-between;align-items:center;
+      box-shadow:0 2px 8px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000;
+    }
+    .logo-text{font-weight:900;font-size:22px;line-height:0.9;color:#111}
+    .logo-text span{display:block;font-size:10px;letter-spacing:3px;font-weight:600;color:#666;margin-top:3px}
+    nav{display:flex;gap:8px}
+    nav a{text-decoration:none;color:#555;padding:9px 20px;border-radius:25px;font-size:14px;background:#F2F2F2;transition:0.3s}
+    nav a.active{background:#2B2E4A;color:white !important}
+    nav a:hover{background:#EFE9DB;transform:translateY(-1px)}
+
+    .main-card{background:white;max-width:1100px;margin:30px auto;padding:0;border-radius:22px;box-shadow:0 8px 25px rgba(0,0,0,0.06);overflow:hidden}
+    
+    /* HERO - ANIMATION POE 2.1 */
+    .hero{position:relative;height:420px;display:flex;align-items:center;justify-content:center;text-align:center;color:white;overflow:hidden}
+    .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.55)}
+    .hero-text{position:relative;z-index:1;animation:fadeUp 0.8s ease}
+    .hero-text h1{font-size:42px;letter-spacing:2px;margin-bottom:10px}
+    .hero-text p{color:#f0f0f0;margin-bottom:18px}
+    .btn{display:inline-block;padding:10px 22px;border-radius:25px;text-decoration:none;font-weight:bold;font-size:14px;transition:0.3s;margin:4px}
+    .btn-blue{background:#2E6BC6;color:white}
+    .btn-blue:hover{background:#1f4fa0;transform:translateY(-2px)}
+    .btn-dark{background:#2B2E4A;color:white}
+    .btn-dark:hover{background:#1a1c2e}
+
+    /* RESERVE - FORM POE 4.1 */
+    .reserve-box{padding:35px}
+    .reserve-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:20px}
+    .inputs{display:flex;flex-direction:column;gap:12px}
+    .inputs input, .inputs select{
+      width:100%;padding:12px 14px;border:1px solid #E8DDC8;border-radius:10px;background:#FFFCF6;font-size:14px;transition:0.3s
+    }
+    .inputs input:focus, .inputs select:focus{border-color:#2E6BC6;outline:none;box-shadow:0 0 0 3px rgba(46,107,198,0.1)}
+    .inputs input.error{border-color:#e74c3c;background:#fff5f5}
+    .error-msg{color:#e74c3c;font-size:12px;display:none;margin-top:-8px}
+    .right-col img{width:100%;height:220px;object-fit:cover;border-radius:14px}
+    .info-box{background:#F8F3EB;padding:16px;border-radius:12px;margin-top:14px;border:1px solid #E8DDC8}
+    .full{width:100%;text-align:center;cursor:pointer;border:none}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{opacity:0;transform:translateY(20px);transition:0.6s}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+
+    footer{text-align:center;padding:25px;color:#888;font-size:13px}
+
+    @media(max-width:800px){
+      .reserve-grid{grid-template-columns:1fr}
+      .hero-text h1{font-size:28px}
+      header{padding:0 15px}
+      nav a{padding:7px 12px;font-size:12px}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-text">umchurch<span>HOPE & FAITH</span></div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="enquiry.html">Enquiry</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="main-card">
+    <!-- HERO -->
+    <div class="hero">
+      <img src="Images/church.jpg" onerror="this.src='https://images.unsplash.com/photo-1436397543931-01c1a73b8485?w=1200'" alt="UM Church interior worship Cape Town congregation">
+      <div class="hero-text">
+        <h1>FAITH • COMMUNITY • HOPE</h1>
+        <p>UM Church Cape Town - No more DMs lost on Instagram</p>
+        <div>
+          <a href="services.html" class="btn btn-blue">Our Services</a>
+          <a href="about.html" class="btn btn-dark">About Us</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESERVE - FORM COM VALIDAÇÃO POE 4.1 -->
+    <div class="reserve-box fade-in">
+      <h2 style="text-align:center">Reserve Your Seat</h2>
+      <p style="text-align:center;font-size:13px;color:#666;margin-bottom:12px">Sunday Service 10AM | 123 Faith Road, Cape Town | <a href="contact.html" style="color:#2E6BC6;">See map</a></p>
+      
+      <div class="reserve-grid">
+        <div class="inputs">
+          <div>
+            <input id="rName" type="text" placeholder="Full Name *">
+            <span id="nameError" class="error-msg">Please enter your full name</span>
+          </div>
+          <div>
+            <input id="rEmail" type="email" placeholder="Email *">
+            <span id="emailError" class="error-msg">Please enter a valid email</span>
+          </div>
+          <div>
+            <input id="rSeats" type="number" placeholder="Seats" min="1" value="1">
+          </div>
+          <div>
+            <select id="rService">
+              <option value="Sunday 10AM">Sunday 10AM - Main Service</option>
+              <option value="Wednesday 6PM">Wednesday 6PM - Bible Study</option>
+              <option value="Friday 5PM">Friday 5PM - Youth Outreach</option>
+            </select>
+          </div>
+          <button class="btn btn-blue full" style="padding:14px" onclick="reserveSeat()">Reserve Seat →</button>
+          <p id="successMsg" style="display:none;color:#27ae60;background:#eafaf1;padding:12px;border-radius:10px;text-align:center;font-weight:bold;margin-top:8px;"></p>
+        </div>
+
+        <div class="right-col fade-in">
+          <img src="Images/church.jpg" onerror="this.src='https://images.unsplash.com/photo-1436397543931-01c1a73b8485?w=600'" alt="UM Church congregation inside">
+          <div class="info-box">
+            <b>What happens next?</b>
+            <ol style="padding-left:18px;margin-top:6px;line-height:1.8">
+              <li>We confirm in 2 hours via email</li>
+              <li>We save your seat at <b>123 Faith Road</b></li>
+              <li>Join us Sunday - <a href="services.html" style="color:#2E6BC6;">see all services</a></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>© 2026 UM Church Cape Town - 123 Faith Road | <a href="enquiry.html" style="color:#888;">Enquiry</a> | <a href="contact.html" style="color:#888;">Contact</a></footer>
+
+  <script>
+    // ANIMATION ON SCROLL - POE 2.1
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // FORM VALIDATION - POE 4.1 Client-Side + Error Handling + AJAX style
+    function reserveSeat(){
+      const name = document.getElementById('rName');
+      const email = document.getElementById('rEmail');
+      const seats = document.getElementById('rSeats').value;
+      const service = document.getElementById('rService').value;
+      const nameError = document.getElementById('nameError');
+      const emailError = document.getElementById('emailError');
+      const success = document.getElementById('successMsg');
+      
+      let valid = true;
+      // Reset
+      name.classList.remove('error'); email.classList.remove('error');
+      nameError.style.display='none'; emailError.style.display='none'; success.style.display='none';
+
+      if(!name.value.trim() || name.value.length < 3){
+        name.classList.add('error'); nameError.style.display='block'; valid=false;
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if(!emailRegex.test(email.value)){
+        email.classList.add('error'); emailError.style.display='block'; valid=false;
+      }
+
+      if(!valid) return;
+
+      // AJAX SIMULATION - POE 4.1 AJAX Form Submission
+      success.textContent = `⏳ Reserving...`;
+      success.style.display='block';
+      
+      setTimeout(() => {
+        // Dynamic response - POE 4.1 cost/availability
+        const cost = service.includes('Sunday') ? 'FREE' : 'FREE - Bring Bible';
+        success.innerHTML = `✅ Thank you ${name.value}! <br> ${seats} seat(s) reserved for <b>${service}</b> at 123 Faith Road.<br>Cost: ${cost}<br>Confirmation sent to: ${email.value}`;
+        // Clear
+        name.value=''; email.value=''; document.getElementById('rSeats').value='1';
+      }, 800);
+    }
+  </script>
+
+</body>
+</html>

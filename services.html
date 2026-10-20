@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | UM Church Cape Town - Sunday, Bible Study, Youth</title>
+  <meta name="description" content="UM Church services: Sunday Service 10AM, Bible Study Wed 6PM, Youth Outreach Fri 5PM. Join us at 123 Faith Road, Cape Town.">
+  <meta name="keywords" content="church services Cape Town, Sunday service, Bible study, Youth ministry, UM Church">
+  
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:#F6F1E7;font-family:Arial,sans-serif;color:#333;line-height:1.6}
+    header{
+      background:white;height:70px;padding:0 40px;
+      display:flex;justify-content:space-between;align-items:center;
+      box-shadow:0 2px 8px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000;
+    }
+    .logo-text{font-weight:900;font-size:22px;line-height:0.9;color:#111}
+    .logo-text span{display:block;font-size:10px;letter-spacing:3px;font-weight:600;color:#666;margin-top:3px}
+    nav{display:flex;gap:8px}
+    nav a{text-decoration:none;color:#555;padding:9px 20px;border-radius:25px;font-size:14px;background:#F2F2F2;transition:0.3s}
+    nav a.active{background:#2B2E4A;color:white !important}
+    nav a:hover{background:#EFE9DB;transform:translateY(-1px)}
+
+    .main-card{background:white;max-width:1100px;margin:30px auto;padding:40px;border-radius:22px;box-shadow:0 8px 25px rgba(0,0,0,0.06)}
+    
+    
+    #searchInput{
+      width:100%;max-width:400px;padding:12px 18px;margin:18px 0;
+      border:1px solid #E8DDC8;border-radius:25px;background:#FFFCF6;
+      font-size:14px;outline:none;transition:0.3s
+    }
+    #searchInput:focus{border-color:#2E6BC6;box-shadow:0 0 0 3px rgba(46,107,198,0.1)}
+
+
+    .service-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:10px}
+    .service-card{
+      background:#FFFCF6;border:1px solid #E8DDC8;border-radius:16px;overflow:hidden;
+      transition:0.4s;cursor:pointer;animation:fadeUp 0.5s ease forwards
+    }
+    .service-card:hover{transform:translateY(-6px);box-shadow:0 12px 25px rgba(0,0,0,0.12)}
+    .service-card img{width:100%;height:190px;object-fit:cover;transition:0.4s}
+    .service-card:hover img{transform:scale(1.05)}
+    .service-card div{padding:16px}
+    .service-card h3{color:#2B2E4A;margin-bottom:6px}
+    .service-card p{color:#666;font-size:14px}
+    .btn-blue{
+      display:inline-block;background:#2E6BC6;color:white;text-decoration:none;
+      padding:8px 18px;border-radius:20px;font-size:13px;margin-top:10px;transition:0.3s
+    }
+    .btn-blue:hover{background:#2B2E4A}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+    /* ===== LIGHTBOX - POE 2.1 Gallery ===== */
+    #lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.9);display:none;justify-content:center;align-items:center;z-index:2000}
+    #lightbox.show{display:flex}
+    #lightbox img{max-width:90%;max-height:85%;border-radius:12px}
+    #lightbox span{position:absolute;top:20px;right:30px;color:white;font-size:30px;cursor:pointer}
+
+    @media(max-width:900px){.service-cards{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.service-cards{grid-template-columns:1fr}header{padding:0 15px}nav a{padding:7px 12px;font-size:12px}}
+  </style>
+</head>
+<body>
+
+
+  <header>
+    <div class="logo-text">umchurch<span>HOPE & FAITH</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="enquiry.html">Enquiry</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="main-card">
+    <h1>Our Services - Cape Town</h1>
+    <p style="color:#777;margin-top:6px;">Everything centralized - No more searching on Instagram. Click image to view larger | <a href="enquiry.html" style="color:#2E6BC6;">Enquire now</a></p>
+
+    
+    <input type="text" id="searchInput" placeholder="Search services... e.g Sunday, Bible, Youth" onkeyup="searchServices()">
+
+    <div id="dynamic-services" class="service-cards"></div>
+
+    <p id="noResults" style="display:none;text-align:center;color:#888;margin-top:20px;">No services found. Try Sunday or Youth.</p>
+  </main>
+
+  
+  <div id="lightbox">
+    <span id="closeLightbox">&times;</span>
+    <img id="lightboxImg" src="" alt="Service enlarged">
+    <p id="lightboxCaption" style="position:absolute;bottom:30px;color:white;background:rgba(0,0,0,0.6);padding:8px 16px;border-radius:20px;"></p>
+  </div>
+
+  <script>
+    // ===== DYNAMIC CONTENT - POE 2.2 =====
+    const services = [
+      {
+        title: "Sunday Service",
+        time: "SUNDAY 10AM - Worship, Word and community",
+        img: "Images/preach.jpg",
+        fallback: "Images/preach.jpg",
+        alt: "Sunday Service worship at UM Church Cape Town"
+      },
+      {
+        title: "Bible Study",
+        time: "WED 6PM - Deep dive into the Word",
+        img: "Images/bible.jpg",
+        fallback: "Images/bible.jpg",
+        alt: "Bible Study group Wednesday UM Church"
+      },
+      {
+        title: "Youth Outreach",
+        time: "FRI 5PM - For the next generation ages 13-25",
+        img: "Images/youth.jpg",
+        fallback: "Images/youth.jpg",
+        alt: "Youth Outreach Friday UM Church Cape Town"
+      }
+    ];
+
+    const container = document.getElementById('dynamic-services');
+
+    function renderServices(list){
+      container.innerHTML = "";
+      list.forEach((s, index) => {
+        const card = document.createElement('div');
+        card.className = 'service-card';
+        card.style.animationDelay = `${index * 0.1}s`;
+        card.innerHTML = `
+          <img src="${s.img}" onerror="this.src='${s.fallback}'" alt="${s.alt}" data-title="${s.title}">
+          <div>
+            <h3>${s.title}</h3>
+            <p>${s.time}</p>
+            <a href="enquiry.html?service=${encodeURIComponent(s.title)}" class="btn-blue">Join Us</a>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+      
+      addLightboxEvents();
+    }
+
+    
+    function searchServices(){
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = services.filter(s => s.title.toLowerCase().includes(q) || s.time.toLowerCase().includes(q));
+      renderServices(filtered);
+      document.getElementById('noResults').style.display = filtered.length ? 'none' : 'block';
+    }
+
+    // ===== LIGHTBOX - POE 2.1 =====
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    function addLightboxEvents(){
+      document.querySelectorAll('.service-card img').forEach(img => {
+        img.addEventListener('click', () => {
+          lightboxImg.src = img.src;
+          lightboxCaption.textContent = img.dataset.title;
+          lightbox.classList.add('show');
+        });
+      });
+    }
+    document.getElementById('closeLightbox').addEventListener('click', () => lightbox.classList.remove('show'));
+    lightbox.addEventListener('click', (e) => { if(e.target === lightbox) lightbox.classList.remove('show'); });
+
+    
+    renderServices(services);
+  </script>
+
+</body>
+</html>

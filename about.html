@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About UM Church | Our Story & History Cape Town</title>
+  <meta name="description" content="UM Church Cape Town since 1998 - 700 members, Hope & Faith mission. History, timeline and FAQs.">
+  <meta name="keywords" content="UM Church, Cape Town church, Hope Faith, church history">
+  
+  <style>
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:#F6F1E7;font-family:Arial,sans-serif;color:#333;line-height:1.6}
+
+   
+    header{
+      background:white;height:70px;padding:0 40px;
+      display:flex;justify-content:space-between;align-items:center;
+      box-shadow:0 2px 8px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000;
+    }
+    .logo-text{font-weight:900;font-size:22px;line-height:0.9;color:#111}
+    .logo-text span{display:block;font-size:10px;letter-spacing:3px;font-weight:600;color:#666;margin-top:3px}
+    nav{display:flex;gap:8px}
+    nav a{text-decoration:none;color:#555;padding:9px 20px;border-radius:25px;font-size:14px;background:#F2F2F2;transition:0.3s}
+    nav a.active{background:#2B2E4A;color:white !important}
+    nav a:hover{background:#EFE9DB;transform:translateY(-1px)}
+
+  
+    .main-card{background:white;max-width:1100px;margin:30px auto;padding:40px;border-radius:22px;box-shadow:0 8px 25px rgba(0,0,0,0.06)}
+
+    .history-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:35px;align-items:center;margin:25px 0}
+    .history-grid img{width:100%;height:380px;object-fit:cover;border-radius:18px;cursor:zoom-in;transition:0.3s}
+    .history-grid img:hover{transform:scale(1.02)}
+    .timeline{border-left:3px solid #2E6BC6;padding-left:18px;margin:15px 0}
+    .timeline div{margin-bottom:10px}
+
+    
+    .faq-item{margin-bottom:12px}
+    .accordion-header{
+      width:100%;text-align:left;padding:16px 20px;background:#F8F3EB;
+      border:1px solid #E8DDC8;border-radius:12px;cursor:pointer;
+      font-weight:bold;color:#2B2E4A;display:flex;justify-content:space-between;align-items:center
+    }
+    .accordion-header.active{background:#2E6BC6;color:white}
+    .accordion-header .arrow{transition:0.3s}
+    .accordion-header.active .arrow{transform:rotate(180deg)}
+    .accordion-content{display:none;padding:18px 20px;background:#FFFCF6;border:1px solid #E8DDC8;border-top:0;border-radius:0 0 12px 12px}
+    .accordion-content.open{display:block;animation:fade 0.3s}
+    @keyframes fade{from{opacity:0}to{opacity:1}}
+
+  
+    .fade-in{opacity:0;transform:translateY(15px);transition:0.6s}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+
+
+    #lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:none;justify-content:center;align-items:center;z-index:2000}
+    #lightbox.show{display:flex}
+    #lightbox img{max-width:90%;max-height:90%;border-radius:12px}
+
+    @media(max-width:800px){.history-grid{grid-template-columns:1fr}header{padding:0 15px}nav{flex-wrap:wrap}}
+  </style>
+</head>
+<body>
+
+  
+  <header>
+    <div class="logo-text">umchurch<span>HOPE & FAITH</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="services.html">Services</a>
+      <a href="enquiry.html">Enquiry</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  
+  <main class="main-card">
+
+    <section class="fade-in">
+      <h1>Our Story - UM Church Cape Town</h1>
+      <p style="color:#777;margin-top:6px;">Everything centralized - No more searching on Instagram. 
+        <a href="services.html" style="color:#2E6BC6;">Our Services</a> • 
+        <a href="contact.html" style="color:#2E6BC6;">Find Us</a>
+      </p>
+    </section>
+
+    <section class="history-grid fade-in">
+      <div>
+        <h2>History of UM Church</h2>
+        <p>UM Church started in 1998 with 12 people in a living room in Sea Point. Vision: <b>Hope & Faith</b> to Cape Town.</p>
+        
+        <div class="timeline">
+          <div><b>1998</b> - 12 members in Sea Point</div>
+          <div><b>2005</b> - Woodstock, 150 members</div>
+          <div><b>2015</b> - 123 Faith Road, 400+ members</div>
+          <div><b>2026</b> - 700 members, 3 services, Youth projects</div>
+        </div>
+
+        <p style="margin-top:15px;"><b>Our Mission:</b> Hope for the broken, Faith for the future, Love for Cape Town.</p>
+      </div>
+
+      <img id="churchPhoto" 
+           src="Images/church.jpg" 
+          
+          alt="UM Church congregation worship in Cape Town - community 700 members">
+    </section>
+
+    <section class="fade-in">
+      <h2 style="margin-top:30px;margin-bottom:15px;">Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <button class="accordion-header"><span>What time is Sunday Service?</span><span class="arrow">▼</span></button>
+        <div class="accordion-content">Sunday 10AM at 123 Faith Road, Cape Town. 90 minutes, kids church available.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="accordion-header"><span>Do you have Youth Ministry?</span><span class="arrow">▼</span></button>
+        <div class="accordion-content">Yes! Youth Outreach every Friday 5PM - Ages 13-25. Games, Bible study and mentorship.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="accordion-header"><span>Where is UM Church located?</span><span class="arrow">▼</span></button>
+        <div class="accordion-content">123 Faith Road, Cape Town. Open daily 7AM-4PM. Check map on <a href="contact.html">Contact page</a>.</div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <div id="lightbox"><img id="lightboxImg" src="" alt="Enlarged church photo"></div>
+
+  <script>
+
+    document.querySelectorAll('.accordion-header').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const isOpen = content.classList.contains('open');
+        document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
+        document.querySelectorAll('.accordion-header').forEach(b => b.classList.remove('active'));
+        if(!isOpen){ content.classList.add('open'); btn.classList.add('active'); }
+      });
+    });
+
+   
+    const obs = new IntersectionObserver(es => {
+      es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+    const photo = document.getElementById('churchPhoto');
+    const box = document.getElementById('lightbox');
+    const boxImg = document.getElementById('lightboxImg');
+    photo.addEventListener('click', () => { boxImg.src = photo.src; box.classList.add('show'); });
+    box.addEventListener('click', () => box.classList.remove('show'));
+  </script>
+
+</body>
+</html>

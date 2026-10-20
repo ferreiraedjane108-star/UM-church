@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enquiry | UM Church Cape Town - Volunteer, Sponsor, Prayer</title>
+  <meta name="description" content="Enquire about UM Church services, volunteering, sponsorship. Sunday Service, Youth Group, Prayer visits at 123 Faith Road, Cape Town. Reply in 24h.">
+  <meta name="keywords" content="UM Church enquiry, volunteer church Cape Town, sponsor church, prayer request">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:#F6F1E7;font-family:Arial,sans-serif;color:#333;line-height:1.6}
+    
+    /* HEADER COM LOGO - MANTENDO SEU LOGO.PNG */
+    header{
+      background:white;height:70px;padding:0 40px;
+      display:flex;justify-content:space-between;align-items:center;
+      box-shadow:0 2px 8px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000;
+    }
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand .logo{width:42px;height:42px;object-fit:contain;border-radius:8px}
+    .brand h1{font-weight:900;font-size:20px;line-height:0.9;color:#111;text-transform:lowercase}
+    .brand span{display:block;font-size:10px;letter-spacing:3px;font-weight:600;color:#666;margin-top:2px;text-transform:uppercase}
+    nav{display:flex;gap:8px}
+    nav a{text-decoration:none;color:#555;padding:9px 20px;border-radius:25px;font-size:14px;background:#F2F2F2;transition:0.3s}
+    nav a.active{background:#2B2E4A;color:white !important}
+    nav a:hover{background:#EFE9DB;transform:translateY(-1px)}
+
+    .reserve-box{background:white;max-width:1100px;margin:30px auto;padding:35px;border-radius:22px;box-shadow:0 8px 25px rgba(0,0,0,0.06)}
+    .reserve-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:20px}
+    .inputs{display:flex;flex-direction:column;gap:12px}
+    .inputs input, .inputs select, .inputs textarea{
+      width:100%;padding:12px 14px;border:1px solid #E8DDC8;border-radius:10px;background:#FFFCF6;font-size:14px;transition:0.3s;font-family:Arial
+    }
+    .inputs input:focus, .inputs select:focus, .inputs textarea:focus{border-color:#2E6BC6;outline:none;box-shadow:0 0 0 3px rgba(46,107,198,0.1)}
+    .inputs input.error, .inputs select.error, .inputs textarea.error{border-color:#e74c3c;background:#fff5f5}
+    .error-msg{color:#e74c3c;font-size:12px;display:none}
+    .right-col img{width:100%;height:240px;object-fit:cover;border-radius:14px}
+    .info-box{background:#F8F3EB;padding:16px;border-radius:12px;margin-top:14px;border:1px solid #E8DDC8}
+    .btn{display:inline-block;padding:12px 22px;border-radius:25px;text-decoration:none;font-weight:bold;font-size:14px;transition:0.3s;text-align:center;border:none;cursor:pointer}
+    .btn-blue{background:#2E6BC6;color:white}
+    .btn-blue:hover{background:#1f4fa0;transform:translateY(-2px)}
+    .full{width:100%}
+    #responseBox{display:none;margin-top:15px;padding:16px;border-radius:12px;background:#eafaf1;border:1px solid #a3d9a5;color:#1e6d2f;line-height:1.7}
+
+    @media(max-width:800px){.reserve-grid{grid-template-columns:1fr}header{padding:0 15px}nav a{padding:7px 12px;font-size:12px}}
+  </style>
+</head>
+<body>
+
+  <!-- HEADER COM LOGO QUE VOCÊ QUIS MANTER -->
+  <header>
+    <div class="brand">
+      <img src="Images/logo.png" class="logo" alt="UM Church Logo - Hope & Faith" onerror="this.style.display='none'">
+      <div>
+        <h1>umchurch</h1>
+        <span>hope & faith</span>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="enquiry.html" class="active">Enquiry</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="reserve-box">
+      <h2 style="text-align:center">Connect With Us</h2>
+      <p style="text-align:center;font-size:13px;color:#666;margin-bottom:14px">No more DMs lost on Instagram. Enquire about services, volunteering or sponsorship. Reply within 24h.</p>
+      
+      <div class="reserve-grid">
+        <!-- FORM - POE 4.1 com Volunteer/Sponsor + custo/disponibilidade -->
+        <form class="inputs" id="enqForm" action="mailto:hello@umchurch.co.za" method="post" enctype="text/plain">
+          <div>
+            <input type="text" id="name" placeholder="Full Name *" required>
+            <span id="nameErr" class="error-msg">Enter your full name (min 3 chars)</span>
+          </div>
+          <div>
+            <input type="email" id="email" placeholder="Email Address *" required>
+            <span id="emailErr" class="error-msg">Enter valid email</span>
+          </div>
+          <div>
+            <input type="tel" id="whats" placeholder="WhatsApp +27... *" required pattern="^\+?[0-9\s]{10,15}$">
+            <span id="whatsErr" class="error-msg">Enter valid WhatsApp e.g. +27 79 123 4567</span>
+          </div>
+          <div>
+            <select id="topic" required>
+              <option value="">Select Topic *</option>
+              <option value="Sunday Service">Sunday Service - 10AM</option>
+              <option value="Bible Study">Bible Study - Wed 6PM</option>
+              <option value="Youth Group">Youth Group - Fri 5PM</option>
+              <option value="Volunteering">Volunteering - Serve with us</option>
+              <option value="Sponsorship">Sponsorship - Support projects</option>
+              <option value="Prayer & Visit">Prayer & Pastoral Visit</option>
+            </select>
+            <span id="topicErr" class="error-msg">Please select a topic</span>
+          </div>
+          <div>
+            <textarea id="msg" rows="5" placeholder="Your Message... Tell us how you want to help or join *" required></textarea>
+            <span id="msgErr" class="error-msg">Message min 10 characters</span>
+          </div>
+          <button type="submit" class="btn btn-blue full" style="padding:14px">Send Enquiry via WhatsApp →</button>
+          
+          <!-- RESPOSTA DINÂMICA DE CUSTO/DISPONIBILIDADE - EXIGIDO POE -->
+          <div id="responseBox"></div>
+        </form>
+
+        <div class="right-col">
+          <img src="Images/outreach.jpg" onerror="this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600'" alt="UM Church outreach community service Cape Town">
+          <div class="info-box">
+            <b>What happens next?</b>
+            <ol style="padding-left:18px;margin-top:6px;line-height:1.8">
+              <li>We receive your message on WhatsApp</li>
+              <li>We reply within 24 hours</li>
+              <li>We connect you with a pastor</li>
+            </ol>
+            <p style="margin-top:10px"><b>WhatsApp:</b> +27 79 665 8703</p>
+            <p><b>Email:</b> hello@umchurch.co.za</p>
+            <p style="margin-top:8px;font-size:12px;color:#666">
+              <b>Cost:</b> All services FREE<br>
+              <b>Volunteer:</b> Fri-Sun available<br>
+              <b>Sponsor:</b> R200-R1000/month projects
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer style="text-align:center;padding:25px;color:#888;font-size:13px">© 2026 UM Church Cape Town - <a href="services.html" style="color:#888;">Services</a> | <a href="contact.html" style="color:#888;">Contact</a></footer>
+
+  <script>
+    // FORM VALIDATION + COST/AVAILABILITY RESPONSE - POE 4.1
+    document.getElementById('enqForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const whats = document.getElementById('whats');
+      const topic = document.getElementById('topic');
+      const msg = document.getElementById('msg');
+      const responseBox = document.getElementById('responseBox');
+      
+      let valid = true;
+      document.querySelectorAll('.error-msg').forEach(el=>el.style.display='none');
+      document.querySelectorAll('.inputs input, .inputs select, .inputs textarea').forEach(el=>el.classList.remove('error'));
+
+      if(name.value.trim().length < 3){ name.classList.add('error'); document.getElementById('nameErr').style.display='block'; valid=false; }
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){ email.classList.add('error'); document.getElementById('emailErr').style.display='block'; valid=false; }
+      if(!/^\+?[0-9\s]{10,15}$/.test(whats.value)){ whats.classList.add('error'); document.getElementById('whatsErr').style.display='block'; valid=false; }
+      if(!topic.value){ topic.classList.add('error'); document.getElementById('topicErr').style.display='block'; valid=false; }
+      if(msg.value.trim().length < 10){ msg.classList.add('error'); document.getElementById('msgErr').style.display='block'; valid=false; }
+
+      if(!valid) return;
+
+      // RESPOSTA DE CUSTO/DISPONIBILIDADE - EXIGIDO POE 4.1
+      let costInfo = "";
+      let availInfo = "";
+      
+      if(topic.value === "Volunteering"){
+        costInfo = "Cost: FREE - Training provided";
+        availInfo = "Availability: Fridays 4PM-7PM & Sundays 8AM-1PM - 20 volunteer spots open";
+      } else if(topic.value === "Sponsorship"){
+        costInfo = "Cost: R200/month feeds 10 youth, R500/month sponsors Bible Study, R1000/month building fund";
+        availInfo = "Availability: Sponsorship open year-round, tax certificate provided";
+      } else if(topic.value.includes("Sunday")){
+        costInfo = "Cost: FREE - No ticket needed";
+        availInfo = "Availability: Every Sunday 10AM, 123 Faith Road, 700 seats, reserve online";
+      } else {
+        costInfo = "Cost: FREE";
+        availInfo = "Availability: Weekly - See Services page";
+      }
+
+      // AJAX STYLE RESPONSE
+      responseBox.style.display='block';
+      responseBox.innerHTML = `
+        ✅ <b>Thank you ${name.value}!</b><br>
+        Topic: <b>${topic.value}</b><br><br>
+        ${costInfo}<br>
+        ${availInfo}<br><br>
+        We will WhatsApp you at <b>${whats.value}</b> and email at <b>${email.value}</b> within 24h.<br>
+        <small>Sending to WhatsApp...</small>
+      `;
+
+      // WHATSAPP - SEU CÓDIGO MANTIDO
+      const text = `Hello UM Church!%0AName: ${encodeURIComponent(name.value)}%0AEmail: ${encodeURIComponent(email.value)}%0AWhatsApp: ${encodeURIComponent(whats.value)}%0ATopic: ${encodeURIComponent(topic.value)}%0AMessage: ${encodeURIComponent(msg.value)}%0A%0A${encodeURIComponent(costInfo)} - ${encodeURIComponent(availInfo)}`;
+      
+      setTimeout(() => {
+        window.open(`https://wa.me/27796658703?text=${text}`, '_blank');
+        responseBox.innerHTML += `<br><br><b>✓ Sent to WhatsApp +27 79 665 8703</b>`;
+      }, 800);
+    });
+  </script>
+</body>
+</html>
